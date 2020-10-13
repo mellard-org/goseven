@@ -162,8 +162,6 @@ spec:
             value: $(params.REPO_OWNER)
           - name: REPO_URL
             value: $(params.REPO_URL)
-          - name: DOCKER_CONFIG
-            value: /tekton/home/.docker
           name: ""
           resources:
             requests:

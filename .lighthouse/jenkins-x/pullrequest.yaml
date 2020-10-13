@@ -239,11 +239,11 @@ spec:
           name: build-make-linux
           resources: {}
         - args:
-          - source .jx/variables.sh && ls -al /kaniko && /kaniko/executor $KANIKO_FLAGS --cache=true --cache-dir=/workspace --context=/workspace/source --dockerfile=/workspace/source/Dockerfile --destination=$DOCKER_REGISTRY/$DOCKER_REGISTRY_ORG/$APP_NAME:$VERSION --cache-repo=$DOCKER_REGISTRY/$DOCKER_REGISTRY_ORG/cache
+          - source .jx/variables.sh && /busybox/ls -al /kaniko && /kaniko/executor $KANIKO_FLAGS --cache=true --cache-dir=/workspace --context=/workspace/source --dockerfile=/workspace/source/Dockerfile --destination=$DOCKER_REGISTRY/$DOCKER_REGISTRY_ORG/$APP_NAME:$VERSION --cache-repo=$DOCKER_REGISTRY/$DOCKER_REGISTRY_ORG/cache
           command:
-          - /bin/sh
+          - /busybox/sh
           - -c
-          image: gcr.io/jenkinsxio/kaniko:0.0.4
+          image: mellardc/kaniko:1.0
           name: build-container-build
           resources: {}
         - args:
